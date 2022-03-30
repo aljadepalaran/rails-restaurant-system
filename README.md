@@ -19,6 +19,9 @@ This is a web application that for a restaurant. The application covers the main
 * Waiter / Front-of-house
 * Customer / Website Takeaway
 
+## Contributing and Source Control
+The project uses the develop branch as the primary branch and the main branch to store the working build. This is because there are plans to eventually add in CI/CD to this project so that when develop is merged into the main branch, the main branch will be deployed.
+
 ## Getting Started
 This project uses the following versions
 * ruby 3.0.2p107

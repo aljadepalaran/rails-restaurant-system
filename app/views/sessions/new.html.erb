@@ -9,6 +9,7 @@
     <%= form.label :password %>
     <%= form.password_field :password, class: 'form-control' %>
   </div>
+  <%= link_to 'Forgot your password', password_reset_path %>  
   <div class='mb-3'>
     <%= form.submit 'Login', class: 'btn btn-primary' %>
   </div>

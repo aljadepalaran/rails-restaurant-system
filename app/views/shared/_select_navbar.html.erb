@@ -1,0 +1,5 @@
+<% if Current.user.present? && Current.user.role == 'ADMIN' %>
+  <%= render partial: 'shared/admin_navbar' %>
+<% else %>
+  <%= render partial: 'shared/navbar' %>
+<% end %>

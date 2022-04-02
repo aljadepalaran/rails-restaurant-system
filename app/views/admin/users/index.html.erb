@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+<div class='d-flex align-items-center justify-content-center'>
+  <h1>Users</h1>
+</div>
+
+<%= form_with url: admin_users_path, method: :get do |f| %>
+  <%= f.text_field :first_name, value: params[:first_name] %>
+  <%= f.text_field :last_name, value: params[:last_name] %>
+  <%= f.text_field :email, value: params[:email] %>
+  <%= f.text_field :phone, value: params[:phone] %>
+  <%= f.select :role, %w(ADMIN SEED CUSTOMER WAITER KITCHEN), selected: params[:role], include_blank: true %>
+  <%= button_to 'Search', '#', class: 'btn btn-primary' %>
+  <%= link_to 'Clear', admin_users_path, method: :get, class: 'btn btn-primary' %>
+<% end %>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.last_name %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                    <td class="col-md-2" >View | Edit | Delete</td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @users, inner_window: 1, outer_window: 0 %>
+    </div>
+</div>

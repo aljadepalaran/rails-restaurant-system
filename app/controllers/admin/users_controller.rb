@@ -1,5 +1,4 @@
-class Admin::UsersController < ApplicationController
-  before_action :check_if_admin!
+class Admin::UsersController < Admin::BaseAdminController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def index

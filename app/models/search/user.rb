@@ -25,7 +25,7 @@ class Search::User
 
   def search_id(scope, id)
     return scope if id.blank?
-    scope.merge!(id: id.to_i)
+    scope.merge!(id: id)
   end
 
   def search_first_name(scope, first_name)

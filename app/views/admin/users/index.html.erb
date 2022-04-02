@@ -2,9 +2,17 @@
 <div class='d-flex align-items-center justify-content-center'>
   <h1>Users</h1>
 </div>
-<div class="border border-primary" style='height:50px; margin: 10px 0px 10px 0px; padding: 10px;'>
-  Sample text
-</div>  
+
+<%= form_with url: admin_users_path, method: :get do |f| %>
+  <%= f.text_field :first_name, value: params[:first_name] %>
+  <%= f.text_field :last_name, value: params[:last_name] %>
+  <%= f.text_field :email, value: params[:email] %>
+  <%= f.text_field :phone, value: params[:phone] %>
+  <%= f.select :role, %w(ADMIN SEED CUSTOMER WAITER KITCHEN), selected: params[:role], include_blank: true %>
+  <%= button_to 'Search', '#', class: 'btn btn-primary' %>
+  <%= link_to 'Clear', admin_users_path, method: :get, class: 'btn btn-primary' %>
+<% end %>
+
 <div class="card">
     <div class="table-responsive">
         <table class="table table-bordered table-striped">

@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def require_user_logged_in!
     redirect_to login_path, alert: 'Sign in' if Current.user.nil?
   end
+
+  def check_if_admin!
+    if Current.user.nil? || Current.user&.role != 'ADMIN'
+      redirect_to root_path, status: 301, alert: 'You are not an admin'
+    end
+  end
 end

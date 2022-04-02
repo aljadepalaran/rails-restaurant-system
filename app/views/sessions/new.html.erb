@@ -1,45 +1,46 @@
-<h1>Login</h1>
-
-<div class='w-75 m-auto pt-5 pb-5 border border-primary'>
-  <div class='border border-primary p-5 w-50 m-auto' style='border-radius: 10px'>
+<div class='w-75 m-auto pt-5 pb-5'>
+  <div class='border border-primary p-5 w-50 m-auto' style='border-radius: 10px; background-color: grey'>
     <%= form_with url: login_path do |form| %>
-      <div class='border border-primary d-flex justify-content-center'>
+      <div class='d-flex justify-content-center'>
         <h1>LOGIN</h1>
-        <%# <img src='https://www.pngfind.com/pngs/m/669-6692892_logo-sample-logo-designs-for-schools-hd-png.png' width='200' height='200' class='d-block mx-auto'> %>
       </div>
       <br>
-      <div class='container m-auto p-1 border border-primary'>
+      <div class='container m-auto p-1'>
         <div class='p-2'>
-          <%= form.label :email %>
-          <%= form.text_field :email, class: 'form-control' %>
-        </div>
-        <div class='p-2'>
-          <%= form.label :password %>
-          <%= form.password_field :password, class: 'form-control' %>
-        </div>
-        <div class='p-2'>
-          <%= form.submit 'Login', class: 'btn btn-primary m-auto w-100' %>
-        </div>
-      </div>
-      <hr class="solid">
-      <div class='border border-primary p-2'>
-        <div class='border border-primary d-flex justify-content-center mb-1'>
-          Login with
-        </div>
-        <div class='container border border-primary'>
-          <div class='d-flex justify-content-center p-1'>
-            <%= button_to 'Facebook', root_path, class: 'me-2' %>
-            <%= button_to 'Google', root_path, class: 'ms-2' %>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <%= form.text_field :email, class: 'form-control', placeholder: "Email Address" %>
           </div>
         </div>
-      </div>
-      <hr class="solid">
-      <div class='border border-primary p-2'>
-        <div class='d-flex justify-content-center border border-primary m-1'>
-          Not a member? &nbsp <%= link_to 'Register', register_path %>
+        <div class='p-2'>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">#</div>
+            </div>
+            <%= form.password_field :password, class: 'form-control', placeholder: "Password" %>
+          </div>
         </div>
-        <div class='d-flex justify-content-center border border-primary m-1'>
-          <%= link_to 'Forgot your password', password_reset_path %>  
+        <div class='p-2'>
+          <%= form.submit 'Login', class: 'btn btn-success m-auto w-100' %>
+        </div>
+        <div class='ps-2 pe-2'>
+          <button class="btn btn-primary btn-block w-100" type="button" id="btn-signup" onclick="location.href='<%= register_path %>';"><i class="fas fa-user-plus"></i>  Register</button>
+          <div class='d-flex justify-content-center m-1'>
+            <%= link_to 'Forgot your password', password_reset_path %>  
+            </div>
+        </div>
+      </div>
+      
+      <hr class="solid">
+      <div class='p-2'>
+        <div class='d-flex justify-content-center mb-1'>
+          Login with
+        </div>
+        <div class='container'>
+          <button class="btn btn-primary w-100 mb-2" type="button" onclick="location.href='<%= register_path %>';"><span><i class="fab fa-facebook-f"></i> Facebook</span></button>
+          <button class="btn btn-danger w-100" type="button" onclick="location.href='<%= register_path %>';"><span><i class="fab fa-google-plus-g"></i> Google+</span></button>
         </div>
       </div>
     <% end %>

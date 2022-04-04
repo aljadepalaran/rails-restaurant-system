@@ -1,0 +1,36 @@
+<% if @blogs %>
+  <% @blogs.each do |blog| %>
+    <%= blog.title %><br>
+    <%= blog.description %><br>
+    <%= blog.body %><br>
+    <%= blog.user.first_name %>
+  <% end %>
+<% end %>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @blogs.each do |blog| %>
+                <tr>
+                    <td class="col-md-1" ><%= blog.id %></td>
+                    <td class="col-md-2" ><%= blog.title %></td>
+                    <td class="col-md-2" ><%= blog.user.full_name %></td>
+                    <td class="col-md-4" ><%= blog.created_at %></td>
+                    <td class="col-md-2" >View | Edit | Delete</td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @blogs, inner_window: 1, outer_window: 0 %>
+    </div>
+</div>

@@ -1,6 +1,4 @@
 class Admin::UsersController < Admin::BaseAdminController
-  before_action :set_user, only: %i[ show edit update destroy ]
-
   def index
     @users = Search::User.new(params).execute!
     @users = @users.paginate(page: params[:page], per_page: 10)

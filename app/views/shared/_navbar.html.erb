@@ -6,23 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to 'Example', root_path, class: 'nav-link ps-3' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Users', root_path, class: 'nav-link ps-3' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Book Now', root_path, class: 'nav-link ps-3' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Contact Us', root_path, class: 'nav-link ps-3' %>
-        </li>
+        <% main_button_routes.each do |name, route| %>
+          <li class="nav-item">
+            <%= link_to name, route, class: 'nav-link ps-3' %>
+          </li>
+        <% end %>
       </ul>
       <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
         <% if Current.user %>
           <li class="nav-item">
-            <%= link_to 'My Account', password_path, class: 'nav-link ps-3' %>
+            <%= link_to 'My Account', account_path, class: 'nav-link ps-3' %>
           </li>
           <li class="nav-item">
             <%= button_to 'Logout', logout_path, method: :delete, class: 'nav-link ps-3' %>
